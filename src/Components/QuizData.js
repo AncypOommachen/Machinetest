@@ -30,17 +30,20 @@ function QuizData() {
   const next = () => {
     if (lock === true) {
       if (index === data.length - 1) setresult(true);
-      return 0;
+      setindex(++index);
+      setquestion(data[index]);
+      setlock(false);
+      option_array.map((option) => {
+        option.current.classList.remove("wrong");
+        option.current.classList.remove("correct");
+        return null;
+      });
+    }
+    else{
+      alert("Please select an option")
     }
   
-    setindex(++index);
-    setquestion(data[index]);
-    setlock(false);
-    option_array.map((option) => {
-      option.current.classList.remove("wrong");
-      option.current.classList.remove("correct");
-      return null;
-    });
+  
   };
   return (
     <div className="container">
@@ -90,19 +93,12 @@ function QuizData() {
         <h2>
         {" "}
         your score {score} out of {data.length}
+        <hr/>
+        <button onClick={()=>{window.location.reload()}}> Restart Game?</button>
       </h2>
       </>:<></>}
      
-      {/* <h2>{index+1}.{question.question}</h2>
-      <ul>
-        <li ref={option1} onClick={(e)=>{checkAns(e,1)}}>{question.option1}</li>
-        <li  ref={option2}  onClick={(e)=>{checkAns(e,2)}}>{question.option2}</li>
-        <li ref={option3} onClick={(e)=>{checkAns(e,3)}}>{question.option3}</li>
-      </ul>
-      <button onClick={next}>Next</button>
-      <div>
-        {index+1} of {data.length} questions
-      </div> */}
+     
     </div>
   );
 }
