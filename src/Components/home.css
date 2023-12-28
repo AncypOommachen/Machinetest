@@ -1,0 +1,15 @@
+.contain{
+    background-color: beige;
+}
+.contain h1{
+ text-align: center;
+ color: blue;
+ font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.contain button{
+    width: 23rem;
+    height: 10rem;
+    border-radius: 4px;
+    color: white;
+    background-color: aquamarine;
+}
